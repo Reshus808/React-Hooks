@@ -1,24 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Index from './Components/Index';
+import Array from './Components/Array';
+import Spred_ope from './Components/Spred_ope';
+import TodoList from './Components/TodoList';
+import ShortCirEval from './Components/ShortCirEval';
+import LoginForm from './Components/LoginForm';
+import UseEffect from './Components/UseEffect';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     {/* <Index/> */}
+     {/* <Array/> */}
+     {/* <Spred_ope/> */}
+     {/* <TodoList/> */}
+     {/* <ShortCirEval/> */}
+     {/* <LoginForm/> */}
+     <UseEffect/>
+    </>
   );
 }
 
