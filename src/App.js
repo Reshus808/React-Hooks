@@ -7,6 +7,8 @@ import TodoList from './Components/TodoList';
 import ShortCirEval from './Components/ShortCirEval';
 import LoginForm from './Components/LoginForm';
 import UseEffect from './Components/UseEffect';
+import Cleanup from './Components/Cleanup';
+import UseEffectApi from './Components/UseEffectApi';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
      {/* <TodoList/> */}
      {/* <ShortCirEval/> */}
      {/* <LoginForm/> */}
-     <UseEffect/>
+     {/* <UseEffect/> */}
+     {/* <Cleanup/> */}
+     <UseEffectApi/>
     </>
   );
 }
