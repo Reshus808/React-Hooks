@@ -8,7 +8,15 @@ import ShortCirEval from './Components/ShortCirEval';
 import LoginForm from './Components/LoginForm';
 import UseEffect from './Components/UseEffect';
 import Cleanup from './Components/Cleanup';
-import UseEffectApi from './Components/UseEffectApi';
+import UseEffectApi from './Components/GithubUsers/UseEffectApi';
+import Uncontrolled from "./Components/Uncontrolled";
+import UseReducer from "./Components/UseReducer";
+import Compo1 from "./Components/useContext/Compo1";
+import Test from "./Components/Test";
+import UseLocation from "./Components/MyApp/UseLocation";
+import Home from "./Components/MyApp/Home";
+import Login from './Components/Notification/Login';
+import Todo from './Components/Todo';
 
 function App() {
   return (
@@ -19,9 +27,16 @@ function App() {
      {/* <TodoList/> */}
      {/* <ShortCirEval/> */}
      {/* <LoginForm/> */}
-     {/* <UseEffect/> */}
+     {/* <UseEffect/>*/}
+     {/* <Test/>*/}
      {/* <Cleanup/> */}
-     <UseEffectApi/>
+     {/*<UseEffectApi/>*/}
+     {/* <Uncontrolled/>*/}
+     {/* <UseReducer/>*/}
+     {/* <Compo1/>*/}
+      {/* <Home/> */}
+      <Todo/>
+
     </>
   );
 }
