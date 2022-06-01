@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import todo from '../images/todo1.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { isTemplateSpan } from 'typescript';
 
+//to set the data from ls
+
+const getLocalItems = () => {
+    let list = localStorage.getItem('lists')
+    // console.log(list)
+
+    if(list){
+        return JSON.parse(localStorage.getItem('lists'));
+    } else {
+        return  []
+    }
+}
 
 const Todo = () => {
 
     const [inputData, setInputData] = useState('');
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(getLocalItems());
 
 
     const addItem = () => {
@@ -31,6 +41,11 @@ const Todo = () => {
     const removeAll = () => {
         setItems([]);
     }
+
+    //add data to localstorage
+    useEffect(() => {
+        localStorage.setItem('lists', JSON.stringify(items))
+    }, [items]);
     return (
         <>
             <div>
