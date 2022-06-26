@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import todo from '../images/todo1.jpg';
+import todo from '../todo1.jpg';
 
 //to set the data from ls
 
@@ -18,24 +18,50 @@ const Todo = () => {
 
     const [inputData, setInputData] = useState('');
     const [items, setItems] = useState(getLocalItems());
+    const [toggleSubmit, setToggleSubmit] = useState(true)
+    const [isEditItem, setIsEditItem] = useState(null)
+
 
 
     const addItem = () => {
         if (!inputData) {
-
-        } else {
-            setItems([...items, inputData]);
+            alert('please fill the data');
+        } else if(inputData && !toggleSubmit){
+            setItems(
+                items.map((item)=>{
+                    if(item.id === isEditItem){
+                        return {...item, name: inputData}
+                    }
+                    return item;
+                })
+            )
+            setToggleSubmit(true)
+            setInputData('')
+            setIsEditItem(null);
+            }else {
+            const allInputData = {id: new Date().getTime().toString(), name: inputData}
+            setItems([...items, allInputData]);
             setInputData('');
         }
     };
 
 
-    const deteleItem = (id) => {
-        console.log(id);
-        const updatedItems = items.filter((item, index) => {
-           return index !== id;
+    const deteleItem = (index) => {
+        // console.log(item.id);
+        const updatedItems = items.filter((item) => {
+           return index !== item.id;
         });
         setItems(updatedItems);
+    }
+
+    const editItem = (id) => {
+                let newEditItem = items.find((item) => {
+                    return item.id === id
+                });
+        console.log(newEditItem)
+        setToggleSubmit(false)
+        setInputData(newEditItem.name)
+        setIsEditItem(id);
     }
 
     const removeAll = () => {
@@ -60,19 +86,21 @@ const Todo = () => {
                             value={inputData} onChange={(e) => setInputData(e.target.value)}
 
                         />
-                        {/* <i className="fa fa-plus add-btn" title='Add Item' onClick={addItem}></i> */}
-                        <p onClick={addItem}>+</p>
+                        {
+                            toggleSubmit ? <p onClick={addItem}>+</p> : <p onClick={addItem}>..edit..</p>
+                        }
                     </div>
 
                     <div>
                         {
-                            items.map((item, index) => {
+                            items.map((item) => {
                                 return (
 
-                                    <div key={index}>
-                                        <h3>{item}</h3>
+                                    <div key={item.id}>
+                                        <h3>{item.name}</h3>
                                         {/* <i className="fa fa-trash-alt add-btn" title='Delete Item'></i> */}
-                                        <button onClick={() => deteleItem(index)}>Delete Item</button>
+                                        <button onClick={() => editItem(item.id)}>Edit Item</button>
+                                        <button onClick={() => deteleItem(item.id)}>Delete Item</button>
                                     </div>
                                 );
 

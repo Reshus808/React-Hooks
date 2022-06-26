@@ -17,6 +17,9 @@ import UseLocation from "./Components/MyApp/UseLocation";
 import Home from "./Components/MyApp/Home";
 import Login from './Components/Notification/Login';
 import Todo from './Components/Todo';
+import GalleryReact from "./Components/TopMenu/GalleryReact";
+import Menu from "./Components/TopMenu/Menu";
+import FilterSet from "./Components/FilterSet";
 
 function App() {
   return (
@@ -35,7 +38,9 @@ function App() {
      {/* <UseReducer/>*/}
      {/* <Compo1/>*/}
       {/* <Home/> */}
-      <Todo/>
+      {/*<Todo/>*/}
+      {/*<GalleryReact/>*/}
+      <FilterSet/>
 
     </>
   );

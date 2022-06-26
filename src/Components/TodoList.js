@@ -16,6 +16,7 @@ const TodoList = () => {
     
     
     const clearArray = () => {
+      let x = 'reshu 😄'
         setButton([]);
     }
 
@@ -39,8 +40,8 @@ const TodoList = () => {
 
           );
         })
-        }
-        <button type='submit' onClick={clearArray}>Clear</button>
+      }
+        <button type='submit' onClick={clearArray}>Clear </button>
 
     
     </div>
